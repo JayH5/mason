@@ -1,0 +1,27 @@
+apply plugin: 'java'
+
+sourceSets {
+  main {
+    java.srcDirs 'sim', 'ec'
+    resources {
+      srcDir projectDir
+      include 'sim/**'
+    }
+  }
+}
+
+jar {
+  manifest {
+    attributes 'Main-Class': 'sim.display.Console'
+  }
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile 'org.jfree:jfreechart:1.0.17'
+  compile 'com.lowagie:itext:4.2.1'
+  compile 'javax.media:jmf:2.1.1e'
+}
