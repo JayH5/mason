@@ -7,12 +7,15 @@
 
 JAVAC = javac ${FLAGS}
 
-FLAGS = -target 1.5 -source 1.5 -g -nowarn 
+mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
+current_dir := $(notdir $(patsubst %/,%,$(dir $(mkfile_path))))
+
+FLAGS = -cp .:'lib/*'; -target 1.6 -source 1.6 -g -nowarn -Xlint:deprecation
 
 VERSION = 17
 
-
 # Main java files, not including the 3D stuff
+
 DIRS = \
 sim/app/heatbugs/*.java\
 sim/app/hexabugs/*.java \
@@ -59,7 +62,7 @@ sim/portrayal/network/*.java \
 sim/portrayal/simple/*.java \
 sim/portrayal/inspector/*.java \
 ec/util/*.java \
-
+coopcomp/*.java
 
 # The additional 3D java files
 3DDIRS = \
@@ -128,6 +131,10 @@ jar: 3d
 dist: clean 3d indent doc jar
 	touch TODO
 	rm TODO
+	touch docs/manualsource
+	rm -rf docs/manualsource
+	touch docs/Java3D.graffle
+	rm -rf docs/*.graffle
 	find . -name ".svn" -exec rm -rf {} \;
 	@ echo "If there were SVN directories, expect this to end in an error."
 	@ echo "Don't worry about it, things are still fine."
