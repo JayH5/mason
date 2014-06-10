@@ -1,0 +1,11 @@
+feijai = feijai <feijai>
+gbalan = Gabriel Balan <gbalan@cs.gmu.edu>
+httpd = no_author <no_author@no_author>
+jhoehne = Johannes Höhne <j.hoehne@tu-berlin.de>
+joey.f.harrison = Joey Harrison <joey.f.harrison@gmail.com>
+joeyfh = Joey Harrison <joey.f.harrison@gmail.com>
+kemsulli = Keith Sullivan <kemsulli@gmail.com>
+kemsulli@gmail.com = Keith Sullivan <kemsulli@gmail.com>
+mcoletti = Mark Coletti <mcoletti@gmu.edu>
+sean@cs.gmu.edu = Sean Luke <sean@cs.gmu.edu>
+(no author) = no_author <no_author@no_author>
