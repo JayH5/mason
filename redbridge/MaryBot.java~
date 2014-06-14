@@ -5,7 +5,7 @@ import sim.engine.*;
 import sim.field.continuous.*;
 import sim.util.*;
 
-public class MaryBot implements Steppable
+public class MaryBot implements RedbridgeBot
 {
  
  public MaryBot ()
