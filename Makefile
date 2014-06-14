@@ -10,7 +10,7 @@ JAVAC = javac ${FLAGS}
 mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
 current_dir := $(notdir $(patsubst %/,%,$(dir $(mkfile_path))))
 
-FLAGS = -cp .:'lib/*'; -target 1.6 -source 1.6 -g -nowarn -Xlint:deprecation
+FLAGS = -cp .:'lib/*' -target 1.6 -source 1.6 -g -nowarn -Xlint:deprecation
 
 VERSION = 17
 
@@ -62,7 +62,8 @@ sim/portrayal/network/*.java \
 sim/portrayal/simple/*.java \
 sim/portrayal/inspector/*.java \
 ec/util/*.java \
-coopcomp/*.java
+babby_steps/*.java \
+redbridge/*.java
 
 # The additional 3D java files
 3DDIRS = \

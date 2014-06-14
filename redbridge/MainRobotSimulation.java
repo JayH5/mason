@@ -8,8 +8,8 @@ public class MainRobotSimulation extends SimState
  //2D simulation environment
  public Continuous2D forageArea = new Continuous2D(1.0,100,100);
  
- //number of agents
- public int numStudents = 50;
+ //number of robot agents
+ public int numRobots = 50;
  
  public MainRobotSimulation (long seed)
  {
@@ -24,9 +24,17 @@ public class MainRobotSimulation extends SimState
   forageArea.clear();
 
   //add robots to the forage area
-  for (int i = 0; i < numStudents; i++)
-  {
+  for (int i = 0; i < numRobots; i++)
+  { 
+
+   //gotta change this to ya own bots
+   RedbridgeBot bot = new MaryBot();
+
+   //place the bot randomly in forage area
+   forageArea.setObjectLocation(bot, new Double2D(forageArea.getWidth() * 0.5  + random.nextDouble() - 0.5,
+   											      forageArea.getHeight() * 0.5 + random.nextDouble() - 0.5));
    
+   schedule.scheduleRepeating(bot);
 
   }
 
