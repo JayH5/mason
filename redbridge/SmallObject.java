@@ -1,7 +1,37 @@
-public class SmallObject extends ForageObject
+//defines a small forage object that a robot should push n shit
+
+import sim.engine.*;
+import sim.util.*;
+import sim.field.continuous.*;
+import sim.portrayal.simple.*;
+
+import java.awt.Color;
+
+//TODO: gotta be able to step this while it stands alone, unpicked-up.
+//then need to specify the block behaviour when attached to one or more agents.
+//oh god.
+
+public class SmallObject extends RectanglePortrayal2D implements Steppable
 {
 
+ 
+ public SmallObject ()
+ {
+  super(new Color(255, 235, 82), 2.0, true);
+ }
+
+ public void step(SimState state)
+ {
+   //get simulation context
+   MainRobotSimulation simulation = (MainRobotSimulation) state;
+   
+   //get the forage environment
+   Continuous2D forageArea = simulation.forageArea;
+
+   Double2D currentPosition = forageArea.getObjectLocation(this);
 
 
+
+ }
 
 }

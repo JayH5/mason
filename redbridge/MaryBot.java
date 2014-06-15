@@ -1,16 +1,30 @@
 //defines a marybot
 import java.util.*;
+import java.awt.Color;
 
 import sim.engine.*;
 import sim.field.continuous.*;
 import sim.util.*;
+import sim.portrayal.simple.*;
 
-public class MaryBot implements Steppable
+//this class subclasses CircledPortrayal2D so that it will always be drawn as a
+//thing with a circle around it.
+public class MaryBot extends CircledPortrayal2D implements Steppable
 {
- 
+
  public MaryBot ()
  {
 
+  //get sum Color in here for the bot
+//  Color teal = new Color(1, 106, 128, 0.5);
+
+  //get sum Color in here for the circle
+//  Color darkGrey = new Color (41, 41, 41);
+
+  //set the default "child" of the circle to an oval thing
+  super(new OvalPortrayal2D(new Color(1,106,128,200), 2.0, true), 4.0, 2.0,
+  							new Color(41,41,41), false);
+  
  }
 
  public void step (SimState state)
@@ -30,8 +44,9 @@ public class MaryBot implements Steppable
   //in order to determine whar it goes next
   MutableDouble2D newPosition = new MutableDouble2D();
 
-  //just some dumb shit to get it to move
-  newPosition.addIn(new Double2D (1.0,1.0));
+  //just some dumb random shit to get it to move
+  newPosition.addIn(new Double2D ((simulation.random.nextDouble() * 1.0 - 0.5) * simulation.randomMultiplier,
+  								  (simulation.random.nextDouble() * 1.0 - 0.5) * simulation.randomMultiplier));
   
   newPosition.addIn(myPosition);
 

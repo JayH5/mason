@@ -65,8 +65,13 @@ public class RobotSimulationUI extends GUIState
   //set the portrayal field as the forageArea
   forageAreaPortrayal.setField(simulation.forageArea);
 
-  //display shit as ovals
-  forageAreaPortrayal.setPortrayalForAll(new OvalPortrayal2D(1.0, true));
+  //display all shit as ovals
+  //forageAreaPortrayal.setPortrayalForAll(new OvalPortrayal2D(1.0, true));
+
+  //display all MaryBots as ovals with a circle around it
+  //forageAreaPortrayal.setPortrayalForAll(new CircledPortrayal2D(new OvalPortrayal2D(2.0, true)));
+
+  //forageAreaPortrayal.setPortrayalForObject(new MaryBot(), (new OvalPortrayal2D(5.0, true)));
 
   display.reset();
   display.setBackdrop(Color.white);

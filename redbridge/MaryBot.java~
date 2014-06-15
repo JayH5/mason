@@ -5,13 +5,8 @@ import sim.engine.*;
 import sim.field.continuous.*;
 import sim.util.*;
 
-public class MaryBot implements RedbridgeBot
+public class MaryBot implements Steppable
 {
- 
- public MaryBot ()
- {
-
- }
 
  public void step (SimState state)
  {
@@ -30,13 +25,13 @@ public class MaryBot implements RedbridgeBot
   //in order to determine whar it goes next
   MutableDouble2D newPosition = new MutableDouble2D();
 
-  //just some dumb shit to get it to move
-  newPosition.addIn(new Double2D (1.0,1.0));
+  //just some dumb random shit to get it to move
+  newPosition.addIn(new Double2D (simulation.random.nextDouble(),simulation.random.nextDouble()));
   
   newPosition.addIn(myPosition);
 
   //move to this position
-  forageArea.setObjectLocation(this, new Double2D(newPosition));
+  //forageArea.setObjectLocation(this, new Double2D(newPosition));
     
 
 
