@@ -1,2 +1,2 @@
-javac -cp .:'/home/racter/Mason/mason/jar/*' *.java
-java -cp .:'/home/racter/Mason/mason/jar/*' RobotSimulationUI
+javac -cp .:'../jar/*' *.java
+java -cp .:'../jar/*' RobotSimulationUI
