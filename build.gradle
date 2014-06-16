@@ -1,8 +1,28 @@
 apply plugin: 'java'
 
+// All the files that include Java3D code
+def java3dSrcs = [
+  'app/balls3d/**',
+  'app/celegans/**',
+  'app/crowd3d/**',
+  'app/heatbugs3d/**',
+  'app/mousetraps3d/**',
+  'app/particles3d/**',
+  'app/pso3d/**',
+  'app/tutorial6/**',
+  'app/tutorial7/**',
+  'app/woims3d/**',
+  'app/wcss/tutorial14/**',
+  'display3d/**',
+  'portrayal3d/**'
+]
+
 sourceSets {
   main {
-    java.srcDirs 'sim', 'ec'
+    java {
+      srcDirs 'sim', 'ec'
+      exclude java3dSrcs // By default, don't build the 3D stuff
+    }
     resources {
       srcDir projectDir
       include 'sim/**'
