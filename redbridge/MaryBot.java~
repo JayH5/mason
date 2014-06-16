@@ -1,12 +1,42 @@
 //defines a marybot
 import java.util.*;
+import java.awt.Color;
 
 import sim.engine.*;
 import sim.field.continuous.*;
 import sim.util.*;
+import sim.portrayal.simple.*;
 
-public class MaryBot implements Steppable
+//this class is a version of CircledPortrayal2D bundled with agent behaviour.
+//it handles both model and view.
+
+public class MaryBot extends Element implements Steppable
 {
+
+ public static final double DEFAULT_SCALE = 2.0;
+ public static final double DEFAULT_OFFSET = 0.0;
+
+ //this is the center agent portrayal
+ public OvalPortrayal2D center;
+
+ public CircledPortrayal2D(double offset, double scale, 
+     								Paint paint)
+ {
+  super(paint, scale, false);  // the scale will be twice what the user requests
+  this.offset = offset; 
+  this.paint = paint;  
+ }
+ 
+ //constructor
+ public MaryBot ()
+ {
+
+
+  //set the default "child" of the circle to an oval thing
+  super(new OvalPortrayal2D(new Color(1,106,128,200), 2.0, true), 4.0, 2.0,
+  							new Color(41,41,41), false);
+  
+ }
 
  public void step (SimState state)
  {
@@ -26,16 +56,19 @@ public class MaryBot implements Steppable
   MutableDouble2D newPosition = new MutableDouble2D();
 
   //just some dumb random shit to get it to move
-  newPosition.addIn(new Double2D (simulation.random.nextDouble(),simulation.random.nextDouble()));
+  newPosition.addIn(new Double2D ((simulation.random.nextDouble() * 1.0 - 0.5) * simulation.randomMultiplier,
+  								  (simulation.random.nextDouble() * 1.0 - 0.5) * simulation.randomMultiplier));
   
   newPosition.addIn(myPosition);
 
   //move to this position
-  //forageArea.setObjectLocation(this, new Double2D(newPosition));
+  forageArea.setObjectLocation(this, new Double2D(newPosition));
     
 
 
  }
+
+ 
 
  public void crossover (Gene partner)
  {
