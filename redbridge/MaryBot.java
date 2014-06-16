@@ -47,7 +47,7 @@ public class MaryBot extends CircledPortrayal2D implements Steppable
 
   //just some dumb random shit to get it to move
   newPosition.addIn(new Double2D ((simulation.random.nextDouble() * 1.0 - 0.5) * simulation.randomMultiplier,
-  								  (simulation.random.nextDouble() * 1.0 - 0.5) * simulation.randomMultiplier,));
+  								  (simulation.random.nextDouble() * 1.0 - 0.5) * simulation.randomMultiplier));
   
   newPosition.addIn(myPosition);
 
