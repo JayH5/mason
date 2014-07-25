@@ -45,3 +45,12 @@ dependencies {
   compile 'com.lowagie:itext:4.2.1'
   compile 'javax.media:jmf:2.1.1e'
 }
+
+apply plugin: 'maven'
+install {
+  repositories.mavenInstaller {
+    pom.version = '18-SNAPSHOT'
+    pom.artifactId = 'mason'
+    pom.groupId = 'edu.gmu.mason'
+  }
+}
